@@ -33,10 +33,11 @@
         <activity android:name=".Operators.CountOperatorActivity" />
         <activity android:name=".Operators.ReduceOperatorActivity" />
         <activity android:name=".Operators.MergeOperatorActivity" />
-        <activity android:name=".Operators.ConcatOperatorActivity"></activity>
-        <activity android:name=".Operators.MapOperatorActivity">
-        </activity>
+        <activity android:name=".Operators.ConcatOperatorActivity" />
+        <activity android:name=".Operators.MapOperatorActivity"></activity>
         <activity android:name=".Operators.FlatMapOperatorActivity">
+        </activity>
+        <activity android:name=".Operators.ConcatMapOperatorActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
