@@ -34,10 +34,11 @@
         <activity android:name=".Operators.ReduceOperatorActivity" />
         <activity android:name=".Operators.MergeOperatorActivity" />
         <activity android:name=".Operators.ConcatOperatorActivity" />
-        <activity android:name=".Operators.MapOperatorActivity"></activity>
-        <activity android:name=".Operators.FlatMapOperatorActivity">
-        </activity>
+        <activity android:name=".Operators.MapOperatorActivity" />
+        <activity android:name=".Operators.FlatMapOperatorActivity"></activity>
         <activity android:name=".Operators.ConcatMapOperatorActivity">
+        </activity>
+        <activity android:name=".Operators.SwitchMapOperatorActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
