@@ -1,6 +1,5 @@
 package com.example.android.rxbasicsteps.Operators.model;
 
-import android.location.Address;
 
 public class User {
     String name;

@@ -29,9 +29,11 @@
         <activity android:name=".Operators.SumOperatorActivity" />
         <activity android:name=".Operators.AverageOperatorActivity" />
         <activity android:name=".Operators.CountOperatorActivity" />
-        <activity android:name=".Operators.ReduceOperatorActivity"/>
+        <activity android:name=".Operators.ReduceOperatorActivity" />
         <activity android:name=".Operators.MergeOperatorActivity" />
         <activity android:name=".Operators.ConcatOperatorActivity">
+        </activity>
+        <activity android:name=".Operators.MapOperatorActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
