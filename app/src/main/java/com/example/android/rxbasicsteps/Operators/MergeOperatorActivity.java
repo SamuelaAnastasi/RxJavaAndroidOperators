@@ -1,5 +1,6 @@
 package com.example.android.rxbasicsteps.Operators;
 
+import android.annotation.SuppressLint;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -24,6 +25,7 @@ public class MergeOperatorActivity extends AppCompatActivity {
 
     private Disposable disposable;
 
+    @SuppressLint("CheckResult")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
