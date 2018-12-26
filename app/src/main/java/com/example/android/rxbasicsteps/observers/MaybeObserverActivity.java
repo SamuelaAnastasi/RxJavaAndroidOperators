@@ -7,39 +7,38 @@ import android.util.Log;
 import com.example.android.rxbasicsteps.R;
 import com.example.android.rxbasicsteps.observers.model.Note;
 
-import io.reactivex.Single;
-import io.reactivex.SingleEmitter;
-import io.reactivex.SingleObserver;
-import io.reactivex.SingleOnSubscribe;
+import io.reactivex.Maybe;
+import io.reactivex.MaybeEmitter;
+import io.reactivex.MaybeObserver;
+import io.reactivex.MaybeOnSubscribe;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
 
-public class SingleObserverActivity extends AppCompatActivity {
-
-    private static final String TAG = SingleObserverActivity.class.getSimpleName();
+public class MaybeObserverActivity extends AppCompatActivity {
+    private static final String TAG = MaybeObserverActivity.class.getSimpleName();
     Disposable disposable;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_single_observer);
+        setContentView(R.layout.activity_maybe_observer);
 
-        Single<Note> singleNoteObservable = getNotesSingleObservable();
-        SingleObserver<Note> singleNoteObserver = getNoteSingleObserver();
+        Maybe<Note> noteMaybeObservable = getNoteMaybeObservable();
+        MaybeObserver<Note> noteMaybeObserver = getNoteMaybeObserver();
 
-        singleNoteObservable
+        noteMaybeObservable
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(singleNoteObserver);
+                .subscribe(noteMaybeObserver);
     }
 
-    private SingleObserver<Note> getNoteSingleObserver() {
-        return new SingleObserver<Note>() {
+    private MaybeObserver<Note> getNoteMaybeObserver() {
+        return new MaybeObserver<Note>() {
             @Override
             public void onSubscribe(Disposable d) {
-                Log.d(TAG, "onSubscribe");
                 disposable = d;
+                Log.d(TAG, "onSubscribe");
             }
 
             @Override
@@ -50,16 +49,22 @@ public class SingleObserverActivity extends AppCompatActivity {
             @Override
             public void onError(Throwable e) {
                 Log.e(TAG, "onError: " + e.getMessage());
+
+            }
+
+            @Override
+            public void onComplete() {
+                Log.e(TAG, "onComplete");
             }
         };
     }
 
-    private Single<Note> getNotesSingleObservable() {
-        return Single.create(new SingleOnSubscribe<Note>() {
+    private Maybe<Note> getNoteMaybeObservable() {
+        return Maybe.create(new MaybeOnSubscribe<Note>() {
             @Override
-            public void subscribe(SingleEmitter<Note> emitter) throws Exception {
-                Note note = new Note(1, "Buy shoes");
-                emitter.onSuccess(note);
+            public void subscribe(MaybeEmitter<Note> emitter) throws Exception {
+                Note note = new Note(1, "Call brother!");
+                if (!emitter.isDisposed()) emitter.onSuccess(note);
             }
         });
     }
