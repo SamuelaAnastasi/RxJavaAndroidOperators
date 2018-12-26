@@ -40,10 +40,12 @@
         <activity android:name=".Operators.SwitchMapOperatorActivity" />
         <activity android:name=".Operators.TakeUntilOperatorActivity" />
         <activity android:name=".observers.ObserverActivity" />
-        <activity android:name=".observers.SingleObserverActivity"/>
-        <activity android:name=".observers.MaybeObserverActivity">
+        <activity android:name=".observers.SingleObserverActivity" />
+        <activity android:name=".observers.MaybeObserverActivity"/>
+        <activity android:name=".observers.CompletableObserverActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
